@@ -3,7 +3,7 @@
 <!DOCTYPE html> <!-- pageTest1.jsp -->
 <html>
 <head>
-<meta http-equiv="Content-Type" content=text/html;charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
   <title>page지시어 테스트</title>
 </head>
 <body>
