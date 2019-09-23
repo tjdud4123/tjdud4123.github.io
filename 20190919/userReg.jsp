@@ -44,9 +44,9 @@
    </fieldset>
     <fieldset><legend>취미</legend>
     <%
-    ArrayList<String> myArrayList=new ArrayList<String>();
-    for(int i=0;i<3;i++){
-      String tmp Type = request.getParameter("stud_hobby"+(i+1));
+    ArrayList<String> myArrayList = new ArrayList<String>();
+    for(int i=0; i<3; i++){
+      String tmpType = request.getParameter("stud_hobby"+(i+1));
       //out.println(tmp Type);
       if(tmpType != null && !"".equals(tmpType))
       myArrayList.add(tmpType);
