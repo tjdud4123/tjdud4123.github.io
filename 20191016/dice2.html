@@ -1,0 +1,17 @@
+<!DOCTYPE html> <!-- dice2.html --> 
+ <html> 
+ <head> 
+ <meta charset=utf-8"/> 
+ <meta name="viewport" content="width=device-width, initial-scale=1"/> 
+ <title>입력 2개 --> 난수 만들기</title></head> 
+ <jsp:useBean id="dice" class="bean.user.Dice" scope="request"/> 
+ <body> 
+	<form action="dice2.jsp" method="post">
+	<label for="startNum">입력 숫자 1:</label>
+	<input type="text" name="startNum"><br>
+	<label for="endNum">입력 숫자 2:</label>
+	<input type="text" name="startNum"><br>
+	<input type="submit" value="확인">
+	</form>
+ </body> 
+ </html> 
