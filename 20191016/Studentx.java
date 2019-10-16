@@ -1,0 +1,13 @@
+package bean.user;
+public class Studentx {
+ String name, msg;
+  public Studentx(String name) {
+   this.name = name;
+  }
+  public void KoreaPrint(String name) {
+   System.out.println(name + ": 대한민국 만세");
+  }
+  public void javaPrint(String name1, String name2) {
+  System.out.println(name1 + ": " +name1 + "야, 자바 만세라고 해라");
+  }
+}
