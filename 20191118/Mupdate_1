@@ -1,0 +1,22 @@
+package db.test;
+import java.sql.*;
+public class Mupdate_1{
+ private Connection conn=null;
+ public boolean mupdate(String sofa_brand, String sofa_size, String sofa_color, String sofa_price, String sofa_material) throws SQLException {
+ boolean flag = false;
+ PreparedStatement pstmt=null;
+ try{
+  conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hdbwork","hstud","gkrtod123A!");
+ String sql="UPDATE t20171360 SET sofa_size=?, sofa_color=?, sofa_price=?, sofa_material=? WHERE sofa_brand=?;";
+ pstmt=conn.prepareStatement(sql);
+ pstmt.setString(5,sofa_brand); pstmt.setString(1,sofa_size); pstmt.setString(2,sofa_color); pstmt.setString(3,sofa_price); pstmt.setString(4,sofa_material);
+ pstmt.executeUpdate();
+ flag=true;
+} catch(Exception e) {e.printStackTrace();
+} finally {
+ try {if(conn != null) conn.close(); if(pstmt != null) pstmt.close();
+} catch(Exception e) {e.printStackTrace(); }
+}
+return flag;
+}
+}
