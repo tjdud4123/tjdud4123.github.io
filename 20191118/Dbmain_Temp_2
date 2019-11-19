@@ -1,0 +1,32 @@
+package db.test;   //package bean.user;
+import java.sql.*;
+public class Dbmain_Temp_2 {
+ public static void main(String[] atgs) {
+ boolean flag=false;
+ Connection conn=null;
+try{
+ Class.forName("com.mysql.jdbc.Driver");
+} catch(ClassNotFoundException e) {e.printStackTrace(); }
+PreparedStatement pstmt=null;
+String sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material;
+try{
+System.out.println("까로네까사 입력합니다");
+sofa_brand="까로네까사";
+sofa_size="one";
+sofa_color="black";
+sofa_price="220,000";
+sofa_material="기본형";
+Minsert_1 minst = new Minsert_1();
+flag = minst.minsert(sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material);
+System.out.println("자코모 입력합니다");
+sofa_brand="동서가구";
+sofa_size="four";
+sofa_color="grey";
+sofa_price="784,720";
+sofa_material="카우치형";
+flag = minst.minsert(sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material);
+} catch(Exception e) {e.printStackTrace();
+} finally {
+ try {if(conn != null) conn.close(); if(pstmt != null) pstmt.close();
+ } catch(Exception e) {e.printStackTrace();}
+}}}
