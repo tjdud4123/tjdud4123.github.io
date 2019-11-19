@@ -1,0 +1,37 @@
+package db.test;
+import java.util.List;
+import java.util.ArrayList;
+import java.sql.*;
+public class Mselect_1 {
+ private Connection conn=null;
+ public List<Userinfo_1> mselect(String idx, String sofa_brand) throws SQLException {
+ PreparedStatement pstmt=null;
+ ResultSet rs=null;
+ List<Userinfo_1> userlists=null;
+ try{
+ userlists=new ArrayList<Userinfo_1>();
+ conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hdbwork","hstud","gkrtod123A!");
+ if(idx=="all"){
+ pstmt=conn.prepareStatement("select * from t20171360");
+} else {
+ pstmt=conn.prepareStatement("select * from t20171360 where sofa_brand=?");
+ pstmt.setString(1,sofa_brand);
+}
+ rs=pstmt.executeQuery();
+while(rs.next()) {
+ Userinfo_1 userlist = new Userinfo_1();
+ userlist.setSofa_brand(rs.getString("sofa_brand"));
+ userlist.setSofa_size(rs.getString("sofa_size"));
+ userlist.setSofa_color(rs.getString("sofa_color"));
+ userlist.setSofa_price(rs.getString("sofa_price"));
+ userlist.setSofa_material(rs.getString("sofa_material"));
+ userlists.add(userlist);
+ }
+} catch(Exception e) {e.printStackTrace();
+} finally {
+ try{if(conn != null) conn.close(); if(pstmt != null) pstmt.close();
+} catch(Exception e) {e.printStackTrace(); }
+}
+return userlists;
+}
+}
