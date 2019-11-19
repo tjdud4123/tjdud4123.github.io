@@ -1,0 +1,24 @@
+package db.test;
+public class Userinfo_1 {
+ private String sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material;
+ public String getSofa_brand() {
+  return sofa_brand; }
+ public void setSofa_brand(String sofa_brand) {
+  this.sofa_brand = sofa_brand; }
+  public String getSofa_size() {
+  return sofa_size; }
+ public void setSofa_size(String sofa_size) {
+  this.sofa_size = sofa_size; }
+  public String getSofa_color() {
+  return sofa_color; }
+ public void setSofa_color(String sofa_color) {
+  this.sofa_color = sofa_color; }
+  public String getSofa_price() {
+  return sofa_price; }
+ public void setSofa_price(String sofa_price) {
+  this.sofa_price = sofa_price; }
+  public String getSofa_material() {
+  return sofa_material; }
+ public void setSofa_material(String sofa_material) {
+  this.sofa_material = sofa_material; }
+}
