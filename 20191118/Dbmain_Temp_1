@@ -1,0 +1,22 @@
+package db.test;   //package bean.user;
+import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
+public class Dbmain_Temp_1 {
+ public static void main(String[] atgs) {
+ boolean flag=false;
+ Connection conn=null;
+try{
+ Class.forName("com.mysql.jdbc.Driver");
+} catch(ClassNotFoundException e) {e.printStackTrace(); }
+PreparedStatement pstmt=null;
+String sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material;
+try{
+System.out.println("모두 지웁니다");
+Mdelete_1 mdelete = new Mdelete_1();
+flag=mdelete.mdelete("all","");
+} catch(Exception e) {e.printStackTrace();
+}finally {
+try{if(conn != null) conn.close(); if(pstmt != null) pstmt.close();
+} catch(Exception e) {e.printStackTrace(); }
+}}}
