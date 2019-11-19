@@ -1,0 +1,22 @@
+package db.test;   //package bean.user;
+import java.sql.*;
+public class Minsert_1 {
+ private Connection conn=null;
+ public boolean minsert(String sofa_brand, String sofa_size, String sofa_color, String sofa_price, String sofa_material) throws SQLException {
+ boolean flag = false;
+ PreparedStatement pstmt=null;
+ try{
+ conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/hdbwork","hstud","gkrtod123A!");
+String sql="INSERT INTO t20171360(sofa_brand, sofa_size, sofa_color, sofa_price, sofa_material)VALUES(?,?,?,?,?)";
+pstmt = conn.prepareStatement(sql);
+pstmt.setString(1,sofa_brand); pstmt.setString(2,sofa_size); pstmt.setString(3,sofa_color); pstmt.setString(4,sofa_price); pstmt.setString(5,sofa_material);
+pstmt.executeUpdate();
+flag=true;
+} catch(Exception e) {e.printStackTrace();
+} finally {
+ try {if(conn != null)conn.close(); if(pstmt != null) pstmt.close();
+ } catch(Exception e) {e.printStackTrace();}
+}
+return flag;
+}
+}
