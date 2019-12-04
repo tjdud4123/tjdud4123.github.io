@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport"content="width=device-width, initial-scale=1">
+<style> *{padding:0; margin:0;}
+ body {font-family: Verdana, sans-serif; font-size:0.8em}
+ header,nav,section,article,footer {border:1px solid gray; margin:5px; padding:8px}
+ nav ul {margin:0; padding:0;}
+ nav ul li {display:inline; margin:5px}
+ a:link{ color:blue;text-decoration:none; }
+ a:visited{ color:purple;text-decoration:none;}
+ a:hover{ text-decoration:underline; }
+ a:active{ color:red;text-decoration:none; }
+ section{height:450px;}
+ .id_form{width:50px;}
+ .label_form{display:inline-block; width:100px; height:14px; color:red; padding:5px;}
+ .button_form{width:60px; margin-left:5px;}
+ .fset{padding:15px;}
+ #dupBtn{height:25px;}
+ ul.level_1 > li {list-style:none; display:inline-block; vertical-align:bottom;}
+ ul.level_1 > li > ul {list-style:none;}
+ .level_2 li {padding-top:5px;}
+ .level_2 span {display:inline-block; width:70px;}
+ .level_2 input {width:100px;}
+ #loginBtn button {margin-left:5px; height:42px;}
+ </style><title>웹서버 프로그래밍</title></head>
+<body>
+ <center><header><h2>SOFA 관리 시스템</h2></header></center>
+ <nav><ul>
+  <li><a href="./sofaHome_1.html">홈페이지</a></li>
+ <li><a href="./sofaReg_1.html">소파등록</a></li></ul></nav>
+ <section>
+  <form action="./sofaReg_1.jsp"method="post">
+   <fieldset class="fset"><legend>소파 등록</legend>
+   <fieldset class="fset"><legend>브랜드/색상</legend>
+    <label class="label_form"for="sofa_brand">브랜드</label>
+    <input type="text"name="sofa_brand"size="20"maxlength="50"required/><br/>
+    <label id="label_form2"class="label_form"for="sofa_color">색상</label>
+    <input type="text"name="sofa_color"size="20"maxlength="50"/><br/>
+    <label id="label_form3"class="label_form"for="sofa_price">가격</label>
+    <input type="text"name="sofa_price"size="20"maxlength="50"/><br/></fieldset>
+    <fieldset class="fset"><legend>가로/세로/높이</legend>
+    <label class="label_form"for="sofa_width">가로X세로X높이</label>
+    <input type="text"name="sofa_width"size="20"maxlength="50"required/><br/>
+   </fieldset>
+   <fieldset class="fset"><legend>사이즈</legend>
+    <label for="sofa_size">1인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="1인용"checked/>
+    <label for="sofa_size">2인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="2인용"/>
+    <label for="sofa_size">3인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="3인용"/>
+    <label for="sofa_size">4인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="4인용"/>
+    <label for="sofa_size">5인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="5인용"/>
+    <label for="sofa_size">6인용</label>
+    <input class="id_form"type="radio"name="sofa_size"value="6인용"/></fieldset>
+    <fieldset class="fset"><legend>커버 주요재질</legend>
+    <label for="sofa_material">천연가죽</label>
+    <input class="id_form"type="radio"name="sofa_material"value="천연가죽"checked/>
+    <label for="sofa_material">샤무드</label>
+    <input class="id_form"type="radio"name="sofa_material"value="샤무드"/>
+    <label for="sofa_material">인조가죽(PU)</label>
+    <input class="id_form"type="radio"name="sofa_material"value="인조가죽(PU)"/>
+    <label for="sofa_material">합성가죽</label>
+    <input class="id_form"type="radio"name="sofa_material"value="합성가죽"/>
+    <label for="sofa_material">패브릭</label>
+    <input class="id_form"type="radio"name="sofa_material"value="패브릭"/>
+    </fieldset><br/>
+    <input class="button_form"type="submit" value="소파등록">
+    <input class="button_form"type="reset" value="취소">
+   </fieldset>
+  </form></section>
+  <footer><p>&copy;2019 Made by Korea. All right reserved.</p></footer></body></html>
