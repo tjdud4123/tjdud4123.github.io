@@ -1,0 +1,123 @@
+package sofa20171360pkg;
+import java.sql.*;
+import java.util.*;
+import sofa20171360pkg.*;
+
+public class S20171360DAO{
+    Connection conn;
+	PreparedStatement ps;
+	ResultSet rs;
+	
+	String url,user,pass;
+	public S20171360DAO() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		url="jdbc:mysql://localhost:3306/hdbwork";
+		user="hstud";
+		pass="gkrtod123A!";
+	}
+	public int insertS20171360(String sofa_brand, String sofa_color, String sofa_price, String sofa_width, String sofa_size, String sofa_material) throws SQLException{
+String sql="insert into sofa(sofa_brand, sofa_color, sofa_price, sofa_width, sofa_size, sofa_material, sofa_regdate) values (?,?,?,?,?,?,?);";
+		try {
+			conn=DriverManager.getConnection(url,user,pass);
+			ps = conn.prepareStatement(sql);
+			java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyyMMddHHmmss");
+			String sofa_regdate = formatter.format(new java.util.Date());
+			ps.setString(1, sofa_brand);
+			ps.setString(2, sofa_color);
+			ps.setString(3, sofa_price);
+			ps.setString(4, sofa_width);
+			ps.setString(5, sofa_size);
+			ps.setString(6, sofa_material);
+			ps.setString(7, sofa_regdate);
+			int rec_no = ps.executeUpdate();
+			
+			return rec_no;
+			
+		}finally {
+			if(ps!=null)
+				ps.close();
+			
+			if(conn!=null)
+				conn.close();		
+		}
+		
+	}
+	
+public List<S20171360DTO> findAllSofa(String sofa_search) throws SQLException{
+	String sql = "select * from sofa where sofa_brand=? or sofa_color=? or sofa_price=? or sofa_width=? or sofa_size=? or sofa_material=?;";
+	List<S20171360DTO> list=new ArrayList<S20171360DTO>();
+	 try {
+		  conn = DriverManager.getConnection(url, user, pass);
+		  ps=conn.prepareStatement(sql);
+		  ps.setString(1,sofa_search);
+ps.setString(2,sofa_search);
+ps.setString(3,sofa_search);
+ps.setString(4,sofa_search);
+ps.setString(5,sofa_search);
+ps.setString(6,sofa_search);
+		  ResultSet rs = ps.executeQuery();
+		  list = makelist(rs);
+		  return list;
+		} finally {
+		  if (ps != null) ps.close();
+		  if(conn != null) conn.close();
+		  if(rs != null) rs.close();
+		}
+	}
+
+
+public List<S20171360DTO> findBrandSofa(String sofa_search) throws SQLException{
+	String sql= "select * from sofa where sofa_brand=?;";
+	List<S20171360DTO> list= new ArrayList<S20171360DTO>();
+	try {
+		conn = DriverManager.getConnection(url,user,pass);
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, sofa_search);
+		ResultSet rs = ps.executeQuery();
+		list = makelist(rs);
+		return list;
+	} finally {
+		  if (ps != null) ps.close();
+		  if(conn != null) conn.close();
+		  if(rs != null) rs.close();
+		}
+	}
+
+public List<S20171360DTO> findSizeSofa(String sofa_search) throws SQLException{
+	String sql= "select * from sofa where sofa_size=?;";
+	List<S20171360DTO> list= new ArrayList<S20171360DTO>();
+	try {
+		conn = DriverManager.getConnection(url,user,pass);
+		ps = conn.prepareStatement(sql);
+		ps.setString(1, sofa_search);
+		ResultSet rs = ps.executeQuery();
+		list = makelist(rs);
+		return list;
+	} finally {
+		  if (ps != null) ps.close();
+		  if(conn != null) conn.close();
+		  if(rs != null) rs.close();
+		}
+	}
+public List<S20171360DTO> makelist(ResultSet rs) throws SQLException{
+	List<S20171360DTO> list = new ArrayList<S20171360DTO>();
+	
+	while(rs.next()){
+		S20171360DTO s20171360dto = new S20171360DTO();
+		s20171360dto.setSofa_brand(rs.getString("sofa_brand"));
+		s20171360dto.setSofa_color(rs.getString("sofa_color"));
+		s20171360dto.setSofa_price(rs.getString("sofa_price"));
+		s20171360dto.setSofa_width(rs.getString("sofa_width"));
+		s20171360dto.setSofa_size(rs.getString("sofa_size"));
+		s20171360dto.setSofa_material(rs.getString("sofa_material"));	
+		list.add(s20171360dto);
+	}
+	
+	return list;
+	}
+	
+}
