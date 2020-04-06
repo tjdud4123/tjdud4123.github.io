@@ -16,7 +16,7 @@
         var $minmaxTemp = data.main.temp_min + '/' + data.main.temp_max;
         var $city = data.name;
 
-        $('.CurrIcon').append('http://openweathermap.org/img/wn/' + $Icon + '@2x.png');
+        $('.CurrIcon').append('<img src="http://openweathermap.org/img/wn/' + $Icon + '@2x.png"/>');
         $('.CurrTemp').prepend($cTemp);
         $('.Temp').append($minmaxTemp);
         $('.City').append($city);
