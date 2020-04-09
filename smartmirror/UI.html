@@ -11,9 +11,9 @@ $.getJSON('파일경로', function(data){
 //data로 할일...
 });
 */
-$.getJSON('api.openweathermap.org/data/2.5/weather?id=1835224&APPID=183dc7532a8b29cbc4ab3f6f0ef67810&units=metric', function(data){
+$.getJSON("http://api.openweathermap.org/data/2.5/weather?id=1835224&APPID=183dc7532a8b29cbc4ab3f6f0ef67810&units=metric", function(data){
 //data로 할일...
-alert(data.cod);
+//alert(data.cod);
 var $minTemp = data.main.temp_min;
 var $maxTemp = data.main.temp_max;
 var $cTemp = data.main.temp;
